@@ -38,20 +38,18 @@ session_start();
     <?php
 
     if (isset($_SESSION['land'])) {
+        echo '<h2>' . 'Er zijn ' . count($_SESSION['land']) . ' landen gevonden' . '</h2>';
+
         echo '<table border="1">';
-        echo '<tr><th>Vlag</th><th>Land</th><th>Landafkorting</th><th>Continent</th></tr>';
+        echo '<tr><th>Vlag</th><th>Land</th><th>Land afkorting</th><th>Continent</th><th>Cont. Afkorting</th></tr>';
 
-        $landArray = explode(',', $_SESSION['land']);
-        $landcodeArray = explode(',', $_SESSION['landcode']);
-        $continentArray = explode(',', $_SESSION['continent']);
-        $vlagArray = explode(',', $_SESSION['vlag_url']);
-
-        for ($i = 0; $i < count($landArray); $i++) {
+        for ($i = 0; $i < count($_SESSION['land']); $i++) {
             echo '<tr>';
-            echo '<td><img src="' . htmlspecialchars($vlagArray[$i]) . '" alt="Vlag van ' . htmlspecialchars($landArray[$i]) . '"></td>'; // ik haal een link uit de database die zet ik hier neer.
-            echo '<td>' . htmlspecialchars($landArray[$i]) . '</td>';
-            echo '<td>' . htmlspecialchars($landcodeArray[$i]) . '</td>';
-            echo '<td>' . htmlspecialchars($continentArray[$i]) . '</td>';
+            echo '<td><img src="' . htmlspecialchars($_SESSION['vlag_url'][$i]) . '" alt="Vlag van ' . htmlspecialchars($_SESSION['land'][$i]) . '"></td>';
+            echo '<td>' . htmlspecialchars($_SESSION['land'][$i]) . '</td>';
+            echo '<td>' . htmlspecialchars($_SESSION['landcode'][$i]) . '</td>';
+            echo '<td>' . htmlspecialchars($_SESSION['continent'][$i]) . '</td>';
+            echo '<td>' . htmlspecialchars($_SESSION['continent_af'][$i]) . '</td>';
             echo '</tr>';
         }
 

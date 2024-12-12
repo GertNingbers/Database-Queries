@@ -1,38 +1,48 @@
-body,form{
+body,
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: lightblue;
 }
-input,select{
+
+input,
+select {
     margin: 10px;
     padding: 5px;
     border: 0px darkblue;
     border-radius: 12px;
 
 }
+
 p {
     font-size: larger;
     margin: 0px 0px 0px 0px;
 }
-table{
+
+table {
     border: 10px solid darkblue;
     border-radius: 12px;
     background-color: black;
     margin-top: 20px;
 }
-th,td{
+
+th,
+td {
     border: 1px solid black;
     padding: 10px;
     background-color: aliceblue;
 }
-h1,form{
- background-color: darkblue;
- color: white;
- border: 15px solid darkblue;
- border-radius: 12px;
+
+h1,
+form {
+    background-color: darkblue;
+    color: white;
+    border: 15px solid darkblue;
+    border-radius: 12px;
 }
-button{
+
+button {
     background-color: gold;
     min-width: 80px;
     min-height: 40px;
@@ -41,16 +51,19 @@ button{
     margin-top: 17px;
     border-radius: 12px;
 }
-form{
+
+form {
     margin-top: -30px;
 }
-.top{
+
+.top {
     background-color: darkblue;
     color: white;
     border: 15px solid darkblue;
     border-radius: 12px
 }
-.err{
+
+.err {
     color: rgb(214, 11, 11);
     border: 1px solid black;
     padding: 10px;
@@ -59,9 +72,18 @@ form{
     font-size: 30px;
     margin-top: 30px;
 }
-img{
-    height: 40px;  
+
+img {
+    height: 40px;
     width: 64px;
-    border: 1px solid black;
+    border: 3px solid black;
+    margin: 0px 0px 0px 0px;
 }
 
+h2 {
+    border: 15px solid darkblue;
+    color: white;
+    border-radius: 12px;
+    margin: 13px 0px -5px 0px;
+    background-color: darkblue;
+}
