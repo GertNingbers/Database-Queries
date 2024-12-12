@@ -113,10 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         }
-        //hier of het een nummer is.
-        elseif (is_numeric($land)) {
-            $_SESSION['err'] = 'Je mag geen nummer invoeren.';
-        }
         //hier of de velden leeg zijn een error mes.
         elseif (empty($land) && empty($Continent)) {
             $_SESSION['err'] = 'Geen invoer!!!.';
