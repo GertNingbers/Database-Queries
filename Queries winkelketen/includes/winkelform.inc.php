@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     try {
-        require_once 'dbh.inc.php';
+        require 'dbh.inc.php';
 
         if (!empty($_SESSION['medewerker_id']) || !empty($_SESSION['medewerker_voornaam']) || !empty($_SESSION['medewerker_achternaam']) || !empty($_SESSION['medewerker_email']) || !empty($_SESSION['medewerker_jobtitle']) || !empty($_SESSION['medewerker_title'])) {
             

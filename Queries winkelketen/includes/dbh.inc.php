@@ -11,4 +11,4 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 
-header('location:../home.php');
+//header('location:../home.php');
