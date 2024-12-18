@@ -16,106 +16,86 @@ session_start();
 
 <body>
     <h1>Winkelketen personeel</h1>
-    <form action="includes/winkelform.inc.php" method="post">
-    
-    <p>Medewerker id: <input type="number" name="med.id" max="80" value="<?php if (!empty($_SESSION['medewerker_id'])) {
+    <button onclick="window.location.href='building.php'">Gebouw info</button>
+    <div class="filbox">
+        <form action="includes/winkelform.inc.php" method="post">
+            <div class="box">
+                <p>Medewerker id: <input type="number" name="med_id" max="80" value="<?php if (!empty($_SESSION['medewerker_id'])) {
                                                                                             echo htmlspecialchars($_SESSION['medewerker_id']);
                                                                                         } ?>"></p>
-                <p>Voornaam: <input type="text" name="voornaam" value="<?php if (!empty($_SESSION['invoer_voornaam'])) {
-                                                                            echo htmlspecialchars($_SESSION['invoer_voornaam']);
+                <p>Voornaam: <input type="text" name="voornaam" value="<?php if (!empty($_SESSION['medewerker_voornaam'])) {
+                                                                            echo htmlspecialchars($_SESSION['medewerker_voornaam']);
                                                                         } ?>"></p>
-                <p>Achternaam: <input type="text" name="achternaam" value="<?php if (!empty($_SESSION['invoer_achternaam'])) {
-                                                                                echo htmlspecialchars($_SESSION['invoer_achternaam']);
+                <p>Achternaam: <input type="text" name="achternaam" value="<?php if (!empty($_SESSION['medewerker_achternaam'])) {
+                                                                                echo htmlspecialchars($_SESSION['medewerker_achternaam']);
                                                                             } ?>"></p>
-                <p>Email: <input type="text" name="email" value="<?php if (!empty($_SESSION['invoer_email'])) {
-                                                                        echo htmlspecialchars($_SESSION['invoer_email']);
+                <p>Email: <input type="text" name="email" value="<?php if (!empty($_SESSION['medewerker_email'])) {
+                                                                        echo htmlspecialchars($_SESSION['medewerker_email']);
                                                                     } ?>"></p>
-                <p>Datum Vanaf: <input type="date" name="date_vanaf" value="<?php if (!empty($_SESSION['date_vanaf'])) {
-                                                                                echo htmlspecialchars($_SESSION['date_vanaf']);
-                                                                            } ?>"></p>
-                <p>Datum Tot: <input type="date" name="date_tot" value="<?php if (!empty($_SESSION['date_tot'])) {
-                                                                            echo htmlspecialchars($_SESSION['date_tot']);
-                                                                        } ?>"></p>
-                <p>Uren gewerkt Vanaf: <input type="number" name="Uren_vanaf" value="<?php if (!empty($_SESSION['Uren_vanaf'])) {
-                                                                                    echo htmlspecialchars($_SESSION['Uren_vanaf']);
-                                                                                } ?>"></p>
-                <p>Uren gewerkt Tot: <input type="number" name="Uren_tot" value="<?php if (!empty($_SESSION['Uren_tot'])) {
-                                                                                echo htmlspecialchars($_SESSION['Uren_tot']);
-                                                                            } ?>"></p>
-        <div class="Filter">
-
-
-                <div class="jobtitle">
-                    <h2 class="h2">Werk titel</h2>
-                    <p>Commercieel directeur: <input type="checkbox" name="jobtitle" value="commercieel directeur"> </p>
-                    <p>Hoofd administratie: <input type="checkbox" name="jobtitle2" value="hoofd administratie"> </p>
-                    <p>Kassamedewerker: <input type="checkbox" name="jobtitle" value="kassamedewerker"> </p>
-                    <p>Kwaliteitsmanager: <input type="checkbox" name="jobtitle" value="kwaliteitsmanager"> </p>
-                    <p>Magazijnmedewerker: <input type="checkbox" name="jobtitle" value="magazijnmedewerker"> </p>
-                    <p>Medewerker administratie: <input type="checkbox" name="jobtitle" value="medewerker administratie"> </p>
-                    <p>Medewerker communicatie: <input type="checkbox" name="jobtitle" value="medewerker communicatie"> </p>
-                    <p>Medewerker M&O: <input type="checkbox" name="jobtitle" value="medewerker M&O"> </p>
-                    <p>Projectleider: <input type="checkbox" name="jobtitle" value="projectleider"> </p>
-                    <p>Verkoopadviseur: <input type="checkbox" name="jobtitle" value="verkoopadviseur"> </p>
-                    <p>Supervisor: <input type="checkbox" name="jobtitle" value="supervisor"> </p>
-                    <p>Verkoopassistent: <input type="checkbox" name="jobtitle" value="verkoopassistent"> </p>
-                </div>
                 <p>Titel: <select name="title">
                         <option value=""></option>
-                        <option value="dhr.">dhr.</option>
-                        <option value="dr.">dr.</option>
-                        <option value="drs.">drs.</option>
-                        <option value="ds.">ds.</option>
-                        <option value="ing.">ing.</option>
-                        <option value="ir.">ir.</option>
-                        <option value="mevr.">mevr.</option>
-                        <option value="mr.">mr.</option>
-                        <option value="prof.">prof.</option>
+                        <option value="dhr." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'dhr.') echo 'selected'; ?>>dhr.</option>
+                        <option value="dr." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'dr.') echo 'selected'; ?>>dr.</option>
+                        <option value="drs." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'drs.') echo 'selected'; ?>>drs.</option>
+                        <option value="ds." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'ds.') echo 'selected'; ?>>ds.</option>
+                        <option value="ing." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'ing.') echo 'selected'; ?>>ing.</option>
+                        <option value="ir." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'ir.') echo 'selected'; ?>>ir.</option>
+                        <option value="mevr." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'mevr.') echo 'selected'; ?>>mevr.</option>
+                        <option value="mr." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'mr.') echo 'selected'; ?>>mr.</option>
+                        <option value="prof." <?php if (isset($_SESSION['medewerker_title']) && $_SESSION['medewerker_title'] == 'prof.') echo 'selected'; ?>>prof.</option>
                     </select>
                 </p>
-                <p> Gebouw: <select name="bulding">
+
+                <p>Werk titel
+                    <select name="jobtitle">
                         <option value=""></option>
-                        <option value="1">Bakkers Shop</option>
-                        <option value="2">Badkamerreus</option>
-                        <option value="3">Videodump</option>
-                        <option value="4">Schoenmaker van Laon</option>
-                        <option value="5">Boekenconcurrent CV</option>
+                        <option value="commercieel directeur" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'commercieel directeur') echo 'selected'; ?>>Commercieel directeur</option>
+                        <option value="hoofd administratie" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'hoofd administratie') echo 'selected'; ?>>Hoofd administratie</option>
+                        <option value="kassamedewerker" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'kassamedewerker') echo 'selected'; ?>>Kassamedewerker</option>
+                        <option value="kwaliteitsmanager" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'kwaliteitsmanager') echo 'selected'; ?>>Kwaliteitsmanager</option>
+                        <option value="magazijnmedewerker" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'magazijnmedewerker') echo 'selected'; ?>>Magazijnmedewerker</option>
+                        <option value="medewerker administratie" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'medewerker administratie') echo 'selected'; ?>>Medewerker administratie</option>
+                        <option value="medewerker communicatie" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'medewerker communicatie') echo 'selected'; ?>>Medewerker communicatie</option>
+                        <option value="medewerker M&O" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'medewerker M&O') echo 'selected'; ?>>Medewerker M&O</option>
+                        <option value="projectleider" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'projectleider') echo 'selected'; ?>>Projectleider</option>
+                        <option value="verkoopadviseur" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'verkoopadviseur') echo 'selected'; ?>>Verkoopadviseur</option>
+                        <option value="supervisor" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'supervisor') echo 'selected'; ?>>Supervisor</option>
+                        <option value="verkoopassistent" <?php if (isset($_SESSION['medewerker_jobtitle']) && $_SESSION['medewerker_jobtitle'] == 'verkoopassistent') echo 'selected'; ?>>Verkoopassistent</option>
                     </select>
                 </p>
+            </div>
 
-                <p>Check:
-                    <select name="check">
-                        <option value=""></option>
-                        <option value="in">in</option>
-                        <option value="out">out</option>
-                    </select>
-                </p>
-                <p></p>
-                <p></p>
-                <button class="fil">zoek</button>
-            </form>
-        </div>
-        <?php
-        if (isset($_SESSION['med.id'])) {
 
-            echo '<table border="1">';
-            echo '<tr><th>Medewerker ID</th><th>Titel</th><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Job Titel</th></tr>';
+            <button class="fil">zoek</button>
+        </form>
+        <button onclick="window.location.href='home.php'">clear</button>
+    </div>
+    <?php
+    if (isset($_SESSION['med.id'])) {
+        echo '<h2>Er zijn ' . htmlspecialchars(count($_SESSION['med.id'])) . ' resultaten gevonden.</h2>';
 
-            for ($i = 0; $i < count($_SESSION['med.id']); $i++) {
-                echo '<tr>';
-                echo '<tr><td>' .  htmlspecialchars($_SESSION['med.id'][$i]) . '</td>';
-                echo '<td>' .  htmlspecialchars($_SESSION['title'][$i]) . '</td>';
-                echo '<td>' .  htmlspecialchars($_SESSION['voornaam'][$i]) . '</td>';
-                echo '<td>' .  htmlspecialchars($_SESSION['achternaam'][$i]) . '</td>';
-                echo '<td>' .  htmlspecialchars($_SESSION['email'][$i]) . '</td>';
-                echo '<td>' .  htmlspecialchars($_SESSION['jobtitle'][$i]) . '</td>';
-                echo '</tr>';
-            }
-            echo '</table>';
-            session_destroy();
+        echo '<table border="1">';
+        echo '<tr><th>Medewerker ID</th><th>Titel</th><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Job Titel</th></tr>';
+
+        for ($i = 0; $i < count($_SESSION['med.id']); $i++) {
+            echo '<tr>';
+            echo '<tr><td>' .  htmlspecialchars($_SESSION['med.id'][$i]) . '</td>';
+            echo '<td>' .  htmlspecialchars($_SESSION['title'][$i]) . '</td>';
+            echo '<td>' .  htmlspecialchars($_SESSION['voornaam'][$i]) . '</td>';
+            echo '<td>' .  htmlspecialchars($_SESSION['achternaam'][$i]) . '</td>';
+            echo '<td>' .  htmlspecialchars($_SESSION['email'][$i]) . '</td>';
+            echo '<td>' .  htmlspecialchars($_SESSION['jobtitle'][$i]) . '</td>';
+            echo '</tr>';
         }
-        ?>
-    
+        echo '</table>';
+    }
+    if(isset($_SESSION['err'])){
+        echo '<p>' . htmlspecialchars($_SESSION['err']) . '</p>';
+    }
+    session_destroy();
+
+    ?>
+
 </body>
 
 </html>
