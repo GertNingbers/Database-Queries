@@ -79,7 +79,7 @@ session_start();
 
         for ($i = 0; $i < count($_SESSION['med.id']); $i++) {
             echo '<tr>';
-            echo '<tr><td>' .  htmlspecialchars($_SESSION['med.id'][$i]) . '</td>';
+            echo '<td>' .  htmlspecialchars($_SESSION['med.id'][$i]) . '</td>';
             echo '<td>' .  htmlspecialchars($_SESSION['title'][$i]) . '</td>';
             echo '<td>' .  htmlspecialchars($_SESSION['voornaam'][$i]) . '</td>';
             echo '<td>' .  htmlspecialchars($_SESSION['achternaam'][$i]) . '</td>';
@@ -90,7 +90,7 @@ session_start();
         echo '</table>';
     }
     if(isset($_SESSION['err'])){
-        echo '<p>' . htmlspecialchars($_SESSION['err']) . '</p>';
+        echo '<p class"err">' . htmlspecialchars($_SESSION['err']) . '</p>';
     }
     session_destroy();
 
