@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    background-image: url('img/DALL·E\ 2025-01-05\ 20.01.53\ -\ A\ warm\ Christmas-themed\ background\ for\ a\ website\,\ depicting\ a\ cozy\ nighttime\ street\ scene.\ The\ setting\ includes\ snow-covered\ houses\ adorned\ with\ glowi.webp'); /* Vervang 'jouw-afbeelding.jpg' door het pad naar jouw afbeelding */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    font-family: Arial, sans-serif;
+}
+th,td {
+    padding: 5px;
+    background-color: beige;
+    border: 3px solid goldenrod;
+}
+
+form {
+    border: 1px solid goldenrod;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: rgb(132, 4, 4);
+}
+
+button {
+    margin: 10px;
+    border: 12px solid rgb(132, 4, 4);
+    padding: 5px;
+    background-color: goldenrod;
+    border-radius: 12px;
+    font-weight: 600;
+    color: rgb(132, 4, 4);
+}
+
+p {
+    margin: 5px 5px 5px 5px;
+
+}
+
+.urenp,p {
+    padding: 10px;
+    background-color: beige;
+    color: darkgreen;
+    border: 12px solid darkgreen;
+    border-radius: 12px;
+    max-width: fit-content;
+}
+
+input,select {
+    background-color: rgb(132, 4, 4);
+    color: goldenrod;
+    border: 1px solid rgb(132, 4, 4);
+    border-radius: 12px;
+    padding: 2px;
+}
+
+.formbackg {
+    border: 12px solid darkgreen;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: darkgreen;
+}
+
+.zoek {
+    margin: 10px;
+    border: 1px solid goldenrod;
+    padding: 5px;
+    background-color: goldenrod;
+    border-radius: 12px;
+    min-width: 315px;
+    font-weight: 600;
+}
+
+h1,h2,h3 {
+    border: 3px solid goldenrod;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgb(132, 4, 4);
+    color: goldenrod;
+}
+
+.hoofd {
+    border: 1px solid darkgreen;
+    background-color: darkgreen;
+    padding: 0px 20px;
+    border-radius: 12px;
+}
+
+table {
+    background-color: rgb(132, 4, 4);
+    padding: 3px;
+    border: 12px solid rgb(132, 4, 4);
+    border-radius: 12px;
+}
+
+.tabb {
+    border: 3px solid goldenrod;
+    background-color: goldenrod;
+    border-radius: 12px;
+    max-width: fit-content;
+}
+
+.urendiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1300px;
+    max-height: fit-content;
+    flex-wrap: wrap;
+}
