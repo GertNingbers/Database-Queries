@@ -1,29 +1,31 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.845);
 }
-.jobtitle{
+
+.jobtitle {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    max-width: 220px; 
+    max-width: 220px;
     padding: 10px;
 }
-p{
+
+p {
     margin: 5px 5px 5px 5px;
 }
 
-.display{
+.display {
     border: 1px solid black;
     min-width: 300px;
     min-height: 300px;
     max-width: 700px;
     max-height: fit-content;
-}   
+}
 
-.box{
+.box {
     display: flex;
     flex-direction: column;
     align-items: first baseline;
@@ -32,36 +34,41 @@ p{
     border-radius: 12px;
     margin: 10px;
     background-color: yellow;
-} 
+}
 
-th,td{
+th,td {
     background-color: yellow;
     padding: 5px;
 }
-button{
+
+button {
     margin: 2px;
     padding: 8px;
     background-color: red;
     border: 1px solid darkred;
 }
-h1{
+
+h1 {
     border: 1px solid yellow;
     background-color: yellow;
     border-radius: 12px;
     padding: 10px;
 }
-table{
+
+table {
     background-color: lightblue;
 }
-.err{
+
+.err {
     background: white;
     border: 12px solid white;
     border-radius: 12px;
     color: red;
 }
-h2{
+
+h2 {
     border-radius: 12px;
     border: 12px solid yellow;
     background-color: yellow;
-    
+
 }

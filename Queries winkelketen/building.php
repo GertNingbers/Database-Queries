@@ -72,7 +72,7 @@ session_start();
 
             echo '<div class="tabb"><table border="1">';
             echo '<tr><th>Medewerker ID</th><th>Titel</th><th>Voornaam</th><th>Achternaam</th><th>Email</th><th>Job Titel</th>';
-            if(!empty($_SESSION['building_id'])){
+            if (!empty($_SESSION['building_id'])) {
                 echo '<th>Building_id</th><th>Building_naam</th><th>Straat</th><th>Buildingnumber</th>';
             }
             echo '</tr>';
@@ -103,7 +103,7 @@ session_start();
         }
         if (isset($_SESSION['urenGewerkt'])) {
             echo '<h2 class="h2">Gewerkte uren:</h2>';
-            echo '<div class="urendiv">' ;
+            echo '<div class="urendiv">';
             foreach ($_SESSION['urenGewerkt'] as $personId => $uren) {
                 echo '<p class="urenp">Persoon ID: ' . htmlspecialchars($personId) . ' heeft ' . htmlspecialchars($uren) . ' uur gewerkt.</p>';
             }

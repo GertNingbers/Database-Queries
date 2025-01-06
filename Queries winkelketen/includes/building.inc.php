@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         $stmt = $pdo->prepare($query);
+
         if (!empty($_SESSION['building_id'])) {
             $stmt->bindParam(':building_id', $_SESSION['building_id']);
         }
@@ -119,25 +120,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Loop door de resultaten
             foreach ($results2 as $result) {
                 $personId = $result['person_id'];
+
+                //maakt een datetime object zodat ik de uren kan uitrekenen
                 $datetime = new DateTime($result['scandate'] . ' ' . $result['scantime']);
 
                 // Controleer of de persoon al in de array zit
                 if (!isset($urenGewerkt[$personId])) {
-                    $urenGewerkt[$personId] = 0; // Initialiseer het aantal uren voor deze persoon
+                    $urenGewerkt[$personId] = 0;
                 }
 
-                // Als het een incheck is, voeg het toe aan de incheck array
+                // Als het in is voeg het toe aan de incheck array
                 if ($result['in_out'] === 'in') {
                     $incheckTijden[$personId][] = $datetime;
                 } elseif ($result['in_out'] === 'out') {
                     // Als het een uitcheck is, controleer of er een bijbehorende incheck is
                     if (isset($incheckTijden[$personId]) && !empty($incheckTijden[$personId])) {
-                        // Haal de laatste inchecktijd
+
+                        // Haalt de laatste inchecktijd
                         $incheckTijd = array_pop($incheckTijden[$personId]);
-                        // Bereken het verschil
+
+                        // Bereken het verschil $datetime is nu out
                         $interval = $incheckTijd->diff($datetime);
-                        // Voeg het aantal uren toe aan het totaal
-                        $urenGewerkt[$personId] += $interval->h + ($interval->days * 24); // Voeg dagen om naar uren
+
+                        // zet de uren er in
+                        $urenGewerkt[$personId] += $interval->format('%d') * 24 + $interval->format('%H');
                     }
                 }
             }

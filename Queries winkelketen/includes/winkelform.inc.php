@@ -3,7 +3,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $_SESSION['medewerker_id'] = $_POST['med_id']; 
+    $_SESSION['medewerker_id'] = $_POST['med_id'];
     $_SESSION['medewerker_voornaam'] = $_POST['voornaam'];
     $_SESSION['medewerker_achternaam'] = $_POST['achternaam'];
     $_SESSION['medewerker_email'] = $_POST['email'];
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require 'dbh.inc.php';
 
         if (!empty($_SESSION['medewerker_id']) || !empty($_SESSION['medewerker_voornaam']) || !empty($_SESSION['medewerker_achternaam']) || !empty($_SESSION['medewerker_email']) || !empty($_SESSION['medewerker_jobtitle']) || !empty($_SESSION['medewerker_title'])) {
-            
+
             $query = 'SELECT * FROM persons WHERE 1=1';
 
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!empty($_SESSION['medewerker_jobtitle'])) {
                 $stmt->bindParam(':jobtitle', $_SESSION['medewerker_jobtitle']);
             }
-            
+
             $stmt->execute();
 
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (empty($results)) {
                 $_SESSION['err'] = 'Geen resultaten gevonden';
             }
-
         } else {
             $query = 'SELECT * FROM persons';
             $stmt = $pdo->prepare($query);
@@ -95,7 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['email'][] = $result['email'];
                 $_SESSION['jobtitle'][] = $result['jobtitle'];
                 $_SESSION['title'][] = $result['title'];
-              
             }
         }
         header('location:../home.php');

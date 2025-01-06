@@ -89,8 +89,8 @@ session_start();
         }
         echo '</table>';
     }
-    if(isset($_SESSION['err'])){
-        echo '<p class"err">' . htmlspecialchars($_SESSION['err']) . '</p>';
+    if (isset($_SESSION['err'])) {
+        echo '<p class="err">' . htmlspecialchars($_SESSION['err']) . '</p>';
     }
     session_destroy();
 
